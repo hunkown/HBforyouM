@@ -27,7 +27,7 @@
     
   </head>
   <body>
-    <audio autoplay loop style="display:none;">
+    <audio id="bgMusic" autoplay loop style="display:none;">
     <source src="1.mp3" type="audio/mpeg">
 </audio>
     <div class="container">
@@ -39,7 +39,11 @@
     
     <script>
       // Read URL params
-      
+      const music = document.getElementById("bgMusic");
+
+document.addEventListener("click", () => {
+    music.play();
+}, { once: true });
       const params = new URLSearchParams(window.location.search);
       const name = params.get("name") || "Marwa";
       let candleCount = parseInt(params.get("candles")) || 4;
